@@ -110,19 +110,20 @@ namespace account{
                 std::cerr<<"Failed to load\n";
                 return 1;
             }
-
-            std::string line;
-            int offset;
             //These lines had me crazy, Had to search for 3 days for a proper answer so I end up with this one
 
             while(my_file){
+                std::string line;
                 std::getline(my_file, line);
-                if((offset=line.find(acc_name, 0)) != std::string::npos){
-                    std::cout<<"LOGGED IN\n";
 
+                if(line==acc_no){
+                    std::cout<<"Logged in \n";
+                    return 0;
                 }
             }
-        
+
+            std::cout<<"Failed to login due to no account\n";
+    
             return 0;
 
         }
